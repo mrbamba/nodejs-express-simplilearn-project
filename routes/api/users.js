@@ -10,9 +10,10 @@ router.get("/",(req,res)=>{
 
 //Look up user
 router.get('/id',(req,res)=>{
-    const found=users.some(user=>user.id===parseInt(req.params.id));
+    const found=users.some(user=>user.id===parseInt(req.body.id));
+    console.log(req.params);
     if(found){
-        res.json(users.filter(user=>user.id===parseInt(req.params.id)));
+        res.json(users.filter(user=>user.id===parseInt(req.body.id)));
     }else{
         res.sendStatus(400);
     }
